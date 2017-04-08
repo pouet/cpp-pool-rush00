@@ -1,54 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ACharacter.cpp                                     :+:      :+:    :+:   */
+/*   GameObject.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:29:13 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 14:36:27 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ACharacter.hpp"
+#include "GameObject.hpp"
 
-ACharacter::ACharacter(void): pv(0), x(0), y(0)
+GameObject::GameObject(void)
 {
 }
 
-ACharacter::ACharacter(int pv_, int x_, int y_): pv(pv_), x(x_), y(y_)
-{
-}
-
-ACharacter::ACharacter(ACharacter const & src)
+GameObject::GameObject(GameObject const & src)
 {
 	*this = src;
 	return;
 }
 
-ACharacter::~ACharacter(void)
+void    Add(Player player)
+{
+	// Mettre player dans player du Game
+}
+
+void    Add(Enemy enemy)
+{
+	// Mettre enemy dans enemy du Game
+}
+
+void    Remove(Player player)
+{
+	// Del le player du Game
+}
+
+void    Remove(Enemy enemy)
+{
+	// Del l'enemy du Game
+}
+
+void	DrawAll(/* Window */)
+{
+
+}
+
+GameObject::~GameObject(void)
 {
 }
 
-int ACharacter::getPv(void) const
+GameObject &	GameObject::operator=( GameObject const & rhs )
 {
-	return pv;
-}
-
-int ACharacter::getX(void) const
-{
-	return x;
-}
-
-int ACharacter::getY(void) const
-{
-	return y;
-}
-
-ACharacter &	ACharacter::operator=( ACharacter const & rhs )
-{
-	pv = rhs.getPv();
-	x = rhs.getX();
-	y = rhs.getY();
 	return *this;
 }

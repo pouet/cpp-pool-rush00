@@ -6,13 +6,13 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:16:59 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 14:30:50 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
 
-Player::Player(): ACharacter(0, 0, 0)
+Player::Player(void): ACharacter(0, 0, 0)
 {
 }
 
@@ -26,7 +26,7 @@ Player::Player(Player const & src)
 	return;
 }
 
-Player::~Player()
+Player::~Player(void)
 {
 }
 
@@ -36,14 +36,14 @@ void	Player::move(int mvX, int mvY)
 	(void)mvY;
 }
 
-void	Player::shoot()
+void	Player::shoot(void)
 {
 
 }
 
-void	Player::collide()
+void	Player::collide(ACharacter * character)
 {
-
+	(void)character;
 }
 
 void	Player::takeDamage(int amount)

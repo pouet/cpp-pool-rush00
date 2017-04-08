@@ -6,13 +6,13 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:23:51 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 14:30:58 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 
-Enemy::Enemy(): ACharacter(0, 0, 0)
+Enemy::Enemy(void): ACharacter(0, 0, 0)
 {
 }
 
@@ -26,7 +26,7 @@ Enemy::Enemy(Enemy const & src)
 	return;
 }
 
-Enemy::~Enemy()
+Enemy::~Enemy(void)
 {
 }
 
@@ -36,14 +36,14 @@ void	Enemy::move(int mvX, int mvY)
 	(void)mvY;
 }
 
-void	Enemy::shoot()
+void	Enemy::shoot(void)
 {
 
 }
 
-void	Enemy::collide()
+void	Enemy::collide(ACharacter * character)
 {
-
+	(void)character;
 }
 
 void	Enemy::takeDamage(int amount)

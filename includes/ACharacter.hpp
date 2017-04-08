@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:21:01 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 14:30:06 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 class ACharacter
 {
 public:
-    ACharacter();
+    ACharacter(void);
 	ACharacter(int, int, int);
     ACharacter(ACharacter const & src);
-    ~ACharacter();
+    ~ACharacter(void);
 
-	int		getPv() const;
-	int		getX() const;
-	int		getY() const;
+	int		getPv(void) const;
+	int		getX(void) const;
+	int		getY(void) const;
 
 	ACharacter &	operator=( ACharacter const & rhs );
 
@@ -33,8 +33,8 @@ protected:
 	int		y;
 
 	virtual void	move(int, int) = 0;
-	virtual void	shoot() = 0;
-	virtual void	collide() = 0;	// Peut etre un override pour les collisions avec la scene
+	virtual void	shoot(void) = 0;
+	virtual void	collide(ACharacter * character) = 0;	// Peut etre un override pour les collisions avec la scene
 	virtual void	takeDamage(int) = 0;
 };
 
