@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:29:47 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 17:01:35 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define Enemy_hpp
 
 #include "ACharacter.hpp"
+#include <string>
 
 class Enemy : public ACharacter
 {
@@ -21,7 +22,9 @@ public:
 	Enemy(void);
 	Enemy(int, int, int);
     Enemy(Enemy const & src);
-    ~Enemy(void);
+    virtual ~Enemy(void);
+
+	std::string	getShape(void) const;
 
 	Enemy &	operator=( Enemy const & rhs );
 

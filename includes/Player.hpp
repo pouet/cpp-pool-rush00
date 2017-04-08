@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:30:37 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 17:01:34 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define Player_hpp
 
 #include "ACharacter.hpp"
+#include <string>
 
 class Player : public ACharacter
 {
@@ -21,7 +22,9 @@ public:
 	Player(void);
 	Player(int, int, int);
     Player(Player const & src);
-    ~Player(void);
+    virtual ~Player(void);
+
+	std::string	getShape(void) const;
 
 	Player &	operator=( Player const & rhs );
 

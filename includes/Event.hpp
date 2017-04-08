@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Event.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/08 17:01:43 by svelhinh          #+#    #+#             */
+/*   Updated: 2017/04/08 17:01:43 by svelhinh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EVENT_HPP
 #define EVENT_HPP
 
@@ -14,7 +26,7 @@ enum e_keys {
 class Event {
 	public:
 		Event(void);
-		~Event(void);
+		virtual ~Event(void);
 
 		Event & operator = (Event const & rhs);
 
