@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 18:41:33 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 19:10:38 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void Game::start(void)
 		_ev.update();
 
 		if (_ev.isPressed(K_UP))
-		{
-			_enemies[0]->move(-1, 0);
 			_player.move(-1, 0);
-		}
 		if (_ev.isPressed(K_DOWN))
 			_player.move(1, 0);
 		if (_ev.isPressed(K_LEFT))
@@ -78,6 +75,7 @@ void	Game::_draw(void)
 		if (_enemies[i] != NULL)
 			_enemies[i]->update();
 	}
+	ui.update();
 	refresh();
 }
 
@@ -94,7 +92,7 @@ void Game::_quit(std::string msg)
 
 bool Game::_isExiting(void) const
 {
-	return _ev.isPressed(K_ESC);
+	return 0;//_ev.isPressed(K_ESC);		// Marche pas, si je le met le jeu quitte directement
 }
 
 void Game::_mainLoop(void)
@@ -129,8 +127,8 @@ void	Game::_remove(Enemy * enemy)
 {
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] == enemy) {
-		 	//delete _enemies[i];
-			//_enemies[i] = NULL;
+		 	delete _enemies[i];
+			_enemies[i] = NULL;
 		}
 	}
 }

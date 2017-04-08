@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 18:31:22 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 19:07:19 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "Event.hpp"
 #include "Player.hpp"
 #include "Enemy.hpp"
+#include "UserInterface.hpp"
 
 #define MAPL 100
 #define MAPH 25
@@ -57,6 +58,8 @@ class Game {
 
 		Player	_player;
 		static Enemy	*_enemies[_nbEnemiesTotal];
+
+		UserInterface ui;
 };
 
 #endif

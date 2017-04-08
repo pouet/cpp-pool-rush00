@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 18:42:21 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/08 18:54:35 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	Enemy::move(int mvX, int mvY)
 
 	if (moveX < 0 || moveX > MAPH || moveY < 0 || moveY > MAPL)
 	{
-		//Game::_remove(this);
+		Game::_remove(this);
 		return;
 	}
 	x = moveX;

@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <iostream>
 #include "Game.hpp"
 
 int main(void)
