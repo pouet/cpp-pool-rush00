@@ -5,6 +5,7 @@
 Game::Game(void)
 	: _gameState(e_playing)
 {
+	(void)_gameState;
 }
 
 Game::~Game(void)
@@ -13,6 +14,8 @@ Game::~Game(void)
 
 Game & Game::operator = (Game const & rhs)
 {
+	(void)rhs;
+	return *this;
 }
 
 void Game::start(void)
@@ -44,10 +47,12 @@ void Game::start(void)
 
 bool Game::_init(void)
 {
+	return true;
 }
 
 bool Game::_quit(void)
 {
+	return true;
 }
 
 bool Game::_isExiting(void) const

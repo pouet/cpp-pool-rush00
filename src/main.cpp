@@ -1,18 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/08 13:46:08 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 14:20:43 by svelhinh         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <ncurses.h>
+#include "Game.hpp"
 
-#include "Player.hpp"
-
-int	main()
+int main(void)
 {
+	Game g;
+
+	initscr();
+	curs_set(0);
+	timeout(0);
+	noecho();
+
+	g.start();
+
+	endwin();
+
 	return 0;
 }

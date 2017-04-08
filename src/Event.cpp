@@ -12,6 +12,8 @@ Event::~Event(void)
 
 Event & Event::operator = (Event const & rhs)
 {
+	(void)rhs;
+	return *this;
 }
 
 void Event::update(void)
