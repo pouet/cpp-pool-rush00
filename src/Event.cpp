@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:48 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 15:06:45 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 20:39:04 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 
 Event::Event(void)
 {
+}
+
+Event::Event(Event const & src)
+{
+	*this = src;
+	return;
 }
 
 Event::~Event(void)

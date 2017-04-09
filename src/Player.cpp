@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:01:11 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 19:03:43 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "Game.hpp"
 
 Player::Player(void)
-	: ACharacter(1, 1, 1, 2, 1, "=>"), _lifes(3)
+	: ACharacter(1, 1, 1, 2, 1, "=>", C_WHITEBLACK), _lifes(3)
 {
 }
 
-Player::Player(int pv, int x, int y, int lifes_)
-	: ACharacter(pv, x, y, 2, 1, "=>"), _lifes(lifes_)
+Player::Player(int pv, int x, int y, int lifes_, int color)
+	: ACharacter(pv, x, y, 2, 1, "=>", color), _lifes(lifes_)
 {
 }
 

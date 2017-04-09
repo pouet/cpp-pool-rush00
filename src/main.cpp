@@ -15,7 +15,12 @@ int main(void)
 	noecho();
 	keypad(stdscr, TRUE);
 
-	init_pair(C_REDBLACK, COLOR_BLUE, COLOR_BLACK);
+	init_pair(C_BLUEBLACK, COLOR_BLACK, COLOR_BLUE);
+	init_pair(C_REDBLACK, COLOR_RED, COLOR_BLACK);
+	init_pair(C_WHITEBLACK, COLOR_WHITE, COLOR_BLACK);
+	init_pair(C_GREENBLACK, COLOR_GREEN, COLOR_BLACK);
+	init_pair(C_YELLOWBLACK, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(C_CYANBLACK, COLOR_CYAN, COLOR_BLACK);
 
 	g.start();
 

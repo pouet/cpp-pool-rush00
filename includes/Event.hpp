@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:43 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 17:01:43 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 20:38:51 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ enum e_keys {
 class Event {
 	public:
 		Event(void);
+		Event(Event const & src);
 		virtual ~Event(void);
 
 		Event & operator = (Event const & rhs);

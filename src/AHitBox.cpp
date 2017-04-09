@@ -10,6 +10,12 @@ AHitBox::AHitBox(int x, int y, int w, int h)
 {
 }
 
+AHitBox::AHitBox(AHitBox const & src)
+{
+	*this = src;
+	return;
+}
+
 AHitBox::~AHitBox(void)
 {
 }

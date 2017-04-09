@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:00:34 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 19:03:52 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Player : public ACharacter
 {
 public:
 	Player(void);
-	Player(int, int, int, int);
+	Player(int, int, int, int, int color);
     Player(Player const & src);
     virtual ~Player(void);
 

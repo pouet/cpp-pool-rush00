@@ -6,7 +6,7 @@
 #    By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/08 15:07:52 by svelhinh          #+#    #+#              #
-#    Updated: 2017/04/09 13:58:50 by svelhinh         ###   ########.fr        #
+#    Updated: 2017/04/09 20:41:37 by svelhinh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_PATH = src
 
 OBJ_PATH = obj
 
-CFLAGS = -Wall -Wextra -I./includes
+CFLAGS = -Wall -Wextra -Werror -I./includes
 
 NCURSESFLAGS = -lncurses
 

@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AHitBox.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/09 20:37:16 by svelhinh          #+#    #+#             */
+/*   Updated: 2017/04/09 20:38:11 by svelhinh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AHITBOX_HPP
 #define AHITBOX_HPP
 
 class AHitBox {
 	public:
+		AHitBox(AHitBox const & src);
 		int getPosX(void) const;
 		int getPosY(void) const;
 		int getWidth(void) const;

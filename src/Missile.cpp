@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:23:04 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 20:41:24 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	Missile::move(int x, int y)
 
 Missile &	Missile::operator=( Missile const & rhs )
 {
+	(void)rhs;
 	return *this;
 }

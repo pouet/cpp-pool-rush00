@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 17:09:34 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 20:39:19 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 #include "Missile.hpp"
 #include "UserInterface.hpp"
 
-#define MAPL 150
+#define MAPL 125
 #define MAPH 25
 
 #define FPS 50
 #define FPS_DFLT_SEC (1. / FPS)
 #define FPS_DFLT_MSEC (FPS_DFLT_SEC * 1000)
 
-#define MAX_ENEMIES 10
+#define MAX_ENEMIES 30
 #define MAX_MISSILES 20
 
 enum e_gameState {
@@ -37,9 +37,18 @@ enum e_gameState {
 	e_exiting
 };
 
+enum e_scoreLevels
+{
+	e_lvl0 = 0,
+	e_lvl1 = 20,
+	e_lvl2 = 50,
+	e_lvl3 = 100
+};
+
 class Game {
 	public:
 		Game(void);
+		Game(Game const & src);
 		virtual ~Game(void);
 
 		Game & operator = (Game const & rhs);
@@ -49,6 +58,7 @@ class Game {
 	private:
 		void _update(void);
 		void _collideAll(void);
+		void _updateLevel(void);
 
 		void _frameInit(void);
 		void _frameWait(void);
@@ -72,6 +82,7 @@ class Game {
 		time_t _ticks;
 		int _score;
 		int _time;
+		int _level;
 
 		Player	* _player;
 		Enemy	* _enemies[MAX_ENEMIES];
