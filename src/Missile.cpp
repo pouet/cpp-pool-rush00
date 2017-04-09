@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:20:38 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:24:12 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,6 @@ Missile::Missile(Missile const & src)
 Missile::~Missile(void)
 {
 }
-
-
-// void	Missile::shoot(void)
-// {
-// }
-//
-// void	Missile::takeDamage(int amount)
-// {
-// }
 
 Missile &	Missile::operator=( Missile const & rhs )
 {

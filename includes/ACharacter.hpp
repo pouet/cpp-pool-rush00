@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:07:07 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:24:28 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 
 	void	setPv(int pv_);
 
-	void	update(void);
+	void	draw(void);
 	void	move(int x, int y);
 
 	bool	isAlive(void) const;

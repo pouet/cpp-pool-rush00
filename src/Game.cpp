@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:22:15 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:24:40 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ void	Game::_update(void)
 //	for (int i = 0; i < _nbEnemiesTotal; i++)
 //		printw("%p\n", _enemies[i]);
 
-	_player->update();
+	_player->draw();
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] != NULL) {
 //			mvprintw(1 + i, 1, "enemy %d : ", i);
-			_enemies[i]->update();
+			_enemies[i]->draw();
 		}
 	}
 

@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:08:18 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:24:21 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void ACharacter::setPv(int pv_)
 	_pv = pv_;
 }
 
-void	ACharacter::update(void)
+void	ACharacter::draw(void)
 {
 	mvprintw(_y, _x, _shape.c_str());
 }
