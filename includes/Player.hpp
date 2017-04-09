@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 09:29:38 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 12:14:32 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ public:
 
 	Player &	operator=( Player const & rhs );
 
-	virtual void	move(int, int);
 	virtual void	shoot(void);
-	virtual void	collide(ACharacter * character);	// Peut etre un override pour les collisions avec la scene
 	virtual void	takeDamage(int);
 };
 

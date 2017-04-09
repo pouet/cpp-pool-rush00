@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 10:53:37 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 12:34:15 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ Game::Game(void)
 	for (int i = 0; i < _nbEnemiesTotal; i++)
 		_enemies[i] = NULL;
 
-	_add(Player(20, 10, 5));
-	_add(new Enemy(3, 10, 30));
-	_add(new Enemy(5, 10, 31));
-	_add(new Enemy(10, 30, 40));
-	_add(new Enemy(20, 40, 50));
+	_add(new Player(20, 5, 10));
+	_add(new Enemy(3, 30, 10));
+	_add(new Enemy(5, 31, 10));
+	_add(new Enemy(10, 40, 30));
+	_add(new Enemy(20, 50, 40));
 
 	_frameInit();
 }
@@ -47,7 +47,6 @@ void Game::start(void)
 
 	while (!_isExiting()) {
 		_ev.update();
-
 		_update();
 
 		_draw();
@@ -55,6 +54,18 @@ void Game::start(void)
 	}
 
 //	_quit();
+}
+
+void	Game::_collideAll(void)
+{
+	for (int i = 0; i < _nbEnemiesTotal; i++) {
+		if (_enemies[i] != NULL && _enemies[i]->collide(*_player)) {
+//			delete _enemies[i];
+			_enemies[i] = NULL;
+
+			_player->setPv(0);
+		}
+	}
 }
 
 void	Game::_update(void)
@@ -65,28 +76,31 @@ void	Game::_update(void)
 		if (_enemies[i] != NULL && _enemies[i]->isAlive() == false) {
 //			printw("%p\n", _enemies[i]);
 //			delete _enemies[i];
-			_enemies[i] = NULL;
+//			_enemies[i] = NULL;
 		}
 	}
 
 	if (_ev.isPressed(K_UP))
-		_player.move(-1, 0);
+		_player->move(0, -1);
 	if (_ev.isPressed(K_DOWN))
-		_player.move(1, 0);
+		_player->move(0, 1);
 	if (_ev.isPressed(K_LEFT))
-		_player.move(0, -1);
+		_player->move(-1, 0);
 	if (_ev.isPressed(K_RIGHT))
-		_player.move(0, 1);
+		_player->move(1, 0);
 	if (_ev.isPressed(K_SHOOT))
 		printw("shoot\n");
+
+	_collideAll();
 
 //	for (int i = 0; i < _nbEnemiesTotal; i++)
 //		printw("%p\n", _enemies[i]);
 
-	_player.update();
+	_player->update();
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
-		if (_enemies[i] != NULL)
+		if (_enemies[i] != NULL) {
 			_enemies[i]->update();
+		}
 	}
 
 	ui.update();
@@ -115,20 +129,22 @@ void Game::_quit(std::string msg)
 
 bool Game::_isExiting(void) const
 {
-	return _ev.isPressed(K_ESC);
+	// TODO: pourquoi ?
+	return false;
+	//return _ev.isPressed(K_ESC);
 }
 
 void Game::_mainLoop(void)
 {
 }
 
-void	Game::_add(Player player)
+void	Game::_add(Player * player)
 {
-	if (player.getX() < 0 || player.getX() > MAPH ||
-		player.getY() < 0 || player.getY() > MAPL)
+	if (player->getPosX() < 0 || player->getPosX() > MAPH ||
+		player->getPosY() < 0 || player->getPosY() > MAPL)
 		_quit("Player out of map");
 	_player = player;
-	_player.update();
+	_player->update();
 }
 
 void	Game::_add(Enemy * enemy)
