@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:10:35 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:42:31 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #define FPS_DFLT (10. / 1000)
 
 #define MAX_ENEMIES 10
-#define MAX_MISSILES 20
+#define MAX_MISSILES 100
 
 enum e_gameState {
 	e_playing,

@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:08:55 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:08:38 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ void	Player::shoot(void)
 void	Player::takeDamage(int amount)
 {
 	(void)amount;
+}
+
+void	Player::move(int x, int y)
+{
+	int	mvX = _x + x;
+	int	mvY = _y + y;
+
+	if (mvX <= 0 || mvX > MAPL || mvY < 0 || mvY > MAPH)
+		return;
+	_x = x + _x;
+	_y = y + _y;
 }
 
 Player &	Player::operator=( Player const & rhs )

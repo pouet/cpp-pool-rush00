@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:35:27 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:58:01 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	Game::_update(void)
 //		printw("%p\n", _enemies[i]);
 
 	_player->draw();
+
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] != NULL) {
 //			mvprintw(1 + i, 1, "enemy %d : ", i);
@@ -127,11 +128,17 @@ void	Game::_update(void)
 	for (int i = 0; i < MAX_MISSILES; i++) {
 		if (_missiles[i] != NULL) {
 			_missiles[i]->move(1, 0);
-			_missiles[i]->draw();
+			if (_missiles[i]->getPosX() > MAPL)
+			{
+				delete _missiles[i];
+				_missiles[i] = NULL;
+			}
+			else
+				_missiles[i]->draw();
 		}
 	}
 
-	_score++;	// Score random pour test
+	_score++;	// Score random pour tester
 	_time = ( std::clock() - _start ) / (double) CLOCKS_PER_SEC;
 
 	ui.update(_player->getLifes(), _score, _time);

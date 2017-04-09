@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:52:39 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:06:13 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 
 	virtual void	shoot(void);
 	virtual void	takeDamage(int);
+	void	move(int x, int y);
 
 private:
 	int	_lifes;

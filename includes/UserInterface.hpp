@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 12:13:48 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:45:57 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ public:
     UserInterface(UserInterface const & src);
     virtual ~UserInterface(void);
 
-	void	update(int nbLifes, int score, int time) const;
+	void	update(int nbLives, int score, int time) const;
     void	mvprintwColor(int x, int y, std::string str, int color) const;
 
 private:
-    void	displayInfos(int nbLifes, int score, int time) const;
+    void	displayInfos(int nbLives, int score, int time) const;
 
 	UserInterface &	operator=( UserInterface const & rhs );
 };
