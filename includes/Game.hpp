@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:42:31 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:31:40 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 #define MAPL 150
 #define MAPH 25
 
-#define FPS_DFLT (10. / 1000)
+#define FPS 50
+#define FPS_DFLT_SEC (1. / FPS)
+#define FPS_DFLT_MSEC (FPS_DFLT_SEC * 1000)
 
 #define MAX_ENEMIES 10
 #define MAX_MISSILES 100
@@ -41,25 +43,20 @@ class Game {
 		Game & operator = (Game const & rhs);
 
 		void start(void);
-		void	_remove(Enemy *);
 
 	private:
-		bool _init(void);
-		bool _quit(void);
-		void _quit(std::string msg);
-
-		void	_update(void);
-		void	_collideAll(void);
+		void _update(void);
+		void _collideAll(void);
 
 		void _frameInit(void);
 		void _frameWait(void);
 
 		bool _isExiting(void) const;
-		void _mainLoop(void);
 
-//		void	_add(Player &);
-//		void	_add(Enemy *);
-//		void	_remove(Player *);
+		void _handleEvents(void);
+
+		void	_remove(Enemy *);
+		void	_remove(Missile *);
 
 		void	_draw(void);
 
@@ -69,7 +66,8 @@ class Game {
 
 		int const _nbEnemiesTotal;
 
-		std::clock_t _start;
+
+		time_t _ticks;
 		int _score;
 		int _time;
 
@@ -77,9 +75,8 @@ class Game {
 		Enemy	* _enemies[MAX_ENEMIES];
 		Missile	* _missiles[MAX_MISSILES];
 
-		time_t _ticks;
-
 		UserInterface ui;
+
 };
 
 #endif

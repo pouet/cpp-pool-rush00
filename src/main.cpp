@@ -1,11 +1,13 @@
 #include <ncurses.h>
 #include <iostream>
+#include <ncurses.h>
 #include "Game.hpp"
 
 int main(void)
 {
 	Game g;
 
+	srand(time(NULL));
 	initscr();
 	start_color();
 	curs_set(0);

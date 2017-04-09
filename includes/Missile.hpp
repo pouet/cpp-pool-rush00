@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:27:15 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:24:06 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ public:
 
 	void	draw(void);
 	void	move(int x, int y);
+
+	void	update(void);
 
 	Missile &	operator=( Missile const & rhs );
 

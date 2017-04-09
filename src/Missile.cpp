@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:27:07 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:23:04 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ Missile::Missile(Missile const & src)
 
 Missile::~Missile(void)
 {
+}
+
+void Missile::update(void)
+{
+	move(1, 0);
 }
 
 void	Missile::draw(void)
