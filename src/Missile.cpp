@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:24:12 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:27:07 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "Game.hpp"
 
 Missile::Missile(void)
-	: AHitBox(1, 1, 1, 1)
+	: AHitBox(1, 1, 1, 1), _shape("-")
 {
 }
 
 Missile::Missile(int x, int y)
-	: AHitBox(x, y, 1, 1)
+	: AHitBox(x, y, 1, 1), _shape("-")
 {
 }
 
@@ -31,6 +31,17 @@ Missile::Missile(Missile const & src)
 
 Missile::~Missile(void)
 {
+}
+
+void	Missile::draw(void)
+{
+	mvprintw(_y, _x, _shape.c_str());
+}
+
+void	Missile::move(int x, int y)
+{
+	_x = x + _x;
+	_y = y + _y;
 }
 
 Missile &	Missile::operator=( Missile const & rhs )

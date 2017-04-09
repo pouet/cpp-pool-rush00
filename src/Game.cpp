@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:24:40 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:35:27 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,15 @@ void	Game::_collideAll(void)
 
 			_player->setPv(0);
 		}
+
+		for (int j = 0; j < MAX_MISSILES; j++) {
+			if (_enemies[i] != NULL && _missiles[j] != NULL && _enemies[i]->collide(*_missiles[j])) {
+				delete _enemies[i];
+				_enemies[i] = NULL;
+				delete _missiles[j];
+				_missiles[j] = NULL;
+			}
+		}
 	}
 }
 
@@ -117,8 +126,8 @@ void	Game::_update(void)
 
 	for (int i = 0; i < MAX_MISSILES; i++) {
 		if (_missiles[i] != NULL) {
-		//	_missiles[i]->move(1, 0);
-		//	_missiles[i]->update();
+			_missiles[i]->move(1, 0);
+			_missiles[i]->draw();
 		}
 	}
 

@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:19:01 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:27:15 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ public:
     Missile(Missile const & src);
     virtual ~Missile(void);
 
-//	void	shoot(void);
-//	void	takeDamage(int amount);
+	void	draw(void);
+	void	move(int x, int y);
 
 	Missile &	operator=( Missile const & rhs );
+
+private:
+	std::string	const _shape;
 };
 
 
