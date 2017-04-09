@@ -6,19 +6,20 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 10:42:10 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 11:52:42 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include <ctime>
 #include "Event.hpp"
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "UserInterface.hpp"
 
-#define MAPL 100
+#define MAPL 150
 #define MAPH 25
 
 #define FPS_DFLT (10. / 1000)
@@ -62,6 +63,10 @@ class Game {
 		Event _ev;
 
 		static int const _nbEnemiesTotal = 10;
+
+		std::clock_t _start;
+		int _score;
+		int _time;
 
 		Player	_player;
 		Enemy	*_enemies[_nbEnemiesTotal];

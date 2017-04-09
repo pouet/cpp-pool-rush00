@@ -6,18 +6,18 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 09:59:27 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 11:56:59 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
 #include "Game.hpp"
 
-Player::Player(void): ACharacter(1, 1, 1, "=>")
+Player::Player(void): ACharacter(1, 1, 1, "=>"), _lifes(3)
 {
 }
 
-Player::Player(int pv_, int x_, int y_): ACharacter(pv_, x_, y_, "=>")
+Player::Player(int pv_, int x_, int y_, int lifes_): ACharacter(pv_, x_, y_, "=>"), _lifes(lifes_)
 {
 }
 
@@ -29,6 +29,11 @@ Player::Player(Player const & src)
 
 Player::~Player(void)
 {
+}
+
+int	Player::getLifes(void) const
+{
+	return _lifes;
 }
 
 void	Player::move(int mvX, int mvY)

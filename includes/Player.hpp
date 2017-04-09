@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 09:29:38 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 11:43:17 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ class Player : public ACharacter
 {
 public:
 	Player(void);
-	Player(int, int, int);
+	Player(int, int, int, int);
     Player(Player const & src);
     virtual ~Player(void);
 
 	std::string	getShape(void) const;
+	int			getLifes(void) const;
 
 	Player &	operator=( Player const & rhs );
 
@@ -32,6 +33,9 @@ public:
 	virtual void	shoot(void);
 	virtual void	collide(ACharacter * character);	// Peut etre un override pour les collisions avec la scene
 	virtual void	takeDamage(int);
+
+private:
+	int	_lifes;
 };
 
 

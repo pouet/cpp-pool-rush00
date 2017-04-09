@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 10:53:37 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 12:17:29 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 #include "Game.hpp"
 
 Game::Game(void)
-	: _gameState(e_playing)
+	: _gameState(e_playing), _start(std::clock()), _score(0), _time(0)
 {
-	(void)_gameState;
 	for (int i = 0; i < _nbEnemiesTotal; i++)
 		_enemies[i] = NULL;
 
-	_add(Player(20, 10, 5));
+	_add(Player(20, 10, 5, 3));
 	_add(new Enemy(3, 10, 30));
 	_add(new Enemy(5, 10, 31));
 	_add(new Enemy(10, 30, 40));
@@ -89,7 +88,10 @@ void	Game::_update(void)
 			_enemies[i]->update();
 	}
 
-	ui.update();
+	_score++;	// Score random pour test
+	_time = ( std::clock() - _start ) / (double) CLOCKS_PER_SEC;
+
+	ui.update(_player.getLifes(), _score, _time);
 }
 
 bool Game::_init(void)

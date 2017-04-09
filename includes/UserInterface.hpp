@@ -6,12 +6,18 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 19:06:28 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 12:13:48 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UserInterface_hpp
 #define UserInterface_hpp
+#include <string>
+
+enum e_colors
+{
+    C_REDBLACK = 1
+};
 
 class UserInterface
 {
@@ -20,7 +26,11 @@ public:
     UserInterface(UserInterface const & src);
     virtual ~UserInterface(void);
 
-    void	update(void) const;
+	void	update(int nbLifes, int score, int time) const;
+    void	mvprintwColor(int x, int y, std::string str, int color) const;
+
+private:
+    void	displayInfos(int nbLifes, int score, int time) const;
 
 	UserInterface &	operator=( UserInterface const & rhs );
 };
