@@ -6,7 +6,7 @@
 #    By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/08 15:07:52 by svelhinh          #+#    #+#              #
-#    Updated: 2017/04/09 09:43:07 by nchrupal         ###   ########.fr        #
+#    Updated: 2017/04/09 11:48:27 by nchrupal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NCURSESFLAGS = -lncurses
 NAME = ft_retro
 
 SRC_NAME =	ACharacter.cpp Enemy.cpp Event.cpp Game.cpp main.cpp Player.cpp \
-			UserInterface.cpp
+			UserInterface.cpp AHitBox.cpp
 
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 

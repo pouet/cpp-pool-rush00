@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 17:01:35 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 12:23:51 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Enemy : public ACharacter
 {
 public:
 	Enemy(void);
-	Enemy(int, int, int);
+	Enemy(int, int x, int y);
     Enemy(Enemy const & src);
     virtual ~Enemy(void);
 
@@ -28,9 +28,7 @@ public:
 
 	Enemy &	operator=( Enemy const & rhs );
 
-	virtual void	move(int, int);
 	virtual void	shoot(void);
-	virtual void	collide(ACharacter *character);	// Peut etre un override pour les collisions avec la scene
 	virtual void	takeDamage(int);
 };
 
