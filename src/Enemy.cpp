@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 12:33:28 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 13:45:05 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,7 @@ void	Enemy::shoot(void)
 
 void	Enemy::takeDamage(int amount)
 {
-	if (_pv - amount <= 0)
-	{
-		_pv = -1;
-		_x = -1;
-		_y = -1;
-		return;
-	}
 	_pv -= amount;
-
 }
 
 Enemy &	Enemy::operator=( Enemy const & rhs )

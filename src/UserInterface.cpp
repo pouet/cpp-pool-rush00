@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:35:06 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 13:50:00 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,22 @@ void	UserInterface::displayInfos(int nbLifes, int score, int time) const
 	float nbInfos = 3;
 
 	mvprintwColor(MAPH - height, 0, "#", C_REDBLACK);
-	for (int y = 1; y < width; y++)
-		mvprintwColor(MAPH - height, y, "-", C_REDBLACK);
+	for (int x = 1; x < width; x++)
+		mvprintwColor(MAPH - height, x, "-", C_REDBLACK);
 	mvprintwColor(MAPH - height, width, "#", C_REDBLACK);
 	for (float i = nbInfos; i > 0; i--)
-		for (int x = MAPH - height + 1; x < MAPH; x++)
-			mvprintwColor(x, i / 3 * width, "|", C_REDBLACK);
+		for (int y = MAPH - height + 1; y < MAPH; y++)
+			mvprintwColor(y, i / 3 * width, "|", C_REDBLACK);
 	mvprintwColor(MAPH, width, "#", C_REDBLACK);
 
-	mvprintwColor(MAPH - height + 1, (((nbInfos - 1) / 3 * width) + ((nbInfos / 3 * width - (nbInfos - 1) / 3 * width) / 2)) - 2.5, "LIFES", C_REDBLACK);
-	mvprintwColor(MAPH - height + 3, (((nbInfos - 1) / 3 * width) + ((nbInfos / 3 * width - (nbInfos - 1) / 3 * width) / 2)), std::to_string(nbLifes).c_str(), C_REDBLACK);
-	mvprintwColor(MAPH - height + 1, (((nbInfos - 2) / 3 * width) + (((nbInfos - 1) / 3 * width - (nbInfos - 2) / 3 * width) / 2)) - 2.5, "SCORE", C_REDBLACK);
-	mvprintwColor(MAPH - height + 3, (((nbInfos - 2) / 3 * width) + (((nbInfos - 1) / 3 * width - (nbInfos - 2) / 3 * width) / 2)), std::to_string(score).c_str(), C_REDBLACK);
-	mvprintwColor(MAPH - height + 1, (((nbInfos - 3) / 3 * width) + (((nbInfos - 2) / 3 * width - (nbInfos - 3) / 3 * width) / 2)) - 2, "TIME", C_REDBLACK);
-	mvprintwColor(MAPH - height + 3, (((nbInfos - 3) / 3 * width) + (((nbInfos - 2) / 3 * width - (nbInfos - 3) / 3 * width) / 2)), std::to_string(time).c_str(), C_REDBLACK);
+	int y = MAPH - height;
+
+	mvprintwColor(y + 1, (((nbInfos - 1) / 3 * width) + ((nbInfos / 3 * width - (nbInfos - 1) / 3 * width) / 2)) - 2.5, "LIFES", C_REDBLACK);
+	mvprintwColor(y + 3, (((nbInfos - 1) / 3 * width) + ((nbInfos / 3 * width - (nbInfos - 1) / 3 * width) / 2)), std::to_string(nbLifes).c_str(), C_REDBLACK);
+	mvprintwColor(y + 1, (((nbInfos - 2) / 3 * width) + (((nbInfos - 1) / 3 * width - (nbInfos - 2) / 3 * width) / 2)) - 2.5, "SCORE", C_REDBLACK);
+	mvprintwColor(y + 3, (((nbInfos - 2) / 3 * width) + (((nbInfos - 1) / 3 * width - (nbInfos - 2) / 3 * width) / 2)), std::to_string(score).c_str(), C_REDBLACK);
+	mvprintwColor(y + 1, (((nbInfos - 3) / 3 * width) + (((nbInfos - 2) / 3 * width - (nbInfos - 3) / 3 * width) / 2)) - 2, "TIME", C_REDBLACK);
+	mvprintwColor(y + 3, (((nbInfos - 3) / 3 * width) + (((nbInfos - 2) / 3 * width - (nbInfos - 3) / 3 * width) / 2)), std::to_string(time).c_str(), C_REDBLACK);
 }
 
 void	UserInterface::update(int nbLifes, int score, int time) const
