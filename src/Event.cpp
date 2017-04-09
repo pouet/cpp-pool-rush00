@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:48 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:17:33 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:06:45 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ void Event::update(void)
 			break;
 
 		switch (key) {
-			case 'w':
+			case 'w': case KEY_UP:
 				_keys[K_UP] = true;
 				break;
-			case 's':
+			case 's': case KEY_DOWN:
 				_keys[K_DOWN] = true;
 				break;
-			case 'd':
+			case 'd': case KEY_RIGHT:
 				_keys[K_RIGHT] = true;
 				break;
-			case 'a':
+			case 'a': case KEY_LEFT:
 				_keys[K_LEFT] = true;
 				break;
 			case ' ':
