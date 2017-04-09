@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 15:09:39 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:03:26 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Game.hpp"
 
 Game::Game(void)
-	: _gameState(e_playing), _nbEnemiesTotal(MAX_ENEMIES), _start(std::clock()), _score(0), _time(0)
+	: _gameState(e_playing), _nbEnemiesTotal(MAX_ENEMIES), _start(std::clock()), _score(0), _time(0), ui(UserInterface())
 {
 	for (int i = 0; i < _nbEnemiesTotal; i++)
 		_enemies[i] = NULL;

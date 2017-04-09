@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:56:50 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:05:13 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 UserInterface::UserInterface(void)
 {
-	init_pair(C_REDBLACK, COLOR_RED, COLOR_BLACK);
 }
 
 UserInterface::UserInterface(UserInterface const & src)
@@ -71,9 +70,11 @@ void	UserInterface::update(int nbLives, int score, int time) const
 
 void	UserInterface::mvprintwColor(int x, int y, std::string str, int color) const
 {
-	//attron(COLOR_PAIR(color));
+	attron(A_BOLD | A_REVERSE);
+	wattron(stdscr, COLOR_PAIR(color));
 	mvprintw(x, y, str.c_str());
-	//attroff(COLOR_PAIR(color));
+	wattroff(stdscr, COLOR_PAIR(color));
+	attroff(A_BOLD | A_REVERSE);
 }
 
 UserInterface &	UserInterface::operator=( UserInterface const & rhs )
