@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 12:04:35 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:07:07 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ACharacter : public AHitBox
 {
 public:
     ACharacter(void);
-	ACharacter(int pv, int x, int y, int w, int h, const std::string shape);
+	ACharacter(int pv, int y, int x, int w, int h, const std::string shape);
     ACharacter(ACharacter const & src);
     virtual ~ACharacter(void);
 

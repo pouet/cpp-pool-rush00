@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:42:37 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:22:15 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ Game::Game(void)
 {
 	for (int i = 0; i < _nbEnemiesTotal; i++)
 		_enemies[i] = NULL;
+
+	for (int i = 0; i < MAX_MISSILES; i++)
+		_missiles[i] = NULL;
 
 	_player = new Player(20, 5, 10, 3);
 	_enemies[0] = new Enemy(3, 30, 10);
@@ -59,7 +62,7 @@ void	Game::_collideAll(void)
 {
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] != NULL && _enemies[i]->collide(*_player)) {
-//			delete _enemies[i];
+			delete _enemies[i];
 			_enemies[i] = NULL;
 
 			_player->setPv(0);
@@ -88,7 +91,16 @@ void	Game::_update(void)
 	if (_ev.isPressed(K_RIGHT))
 		_player->move(1, 0);
 	if (_ev.isPressed(K_SHOOT))
-		printw("shoot\n");
+	{
+		for (int i = 0; i < MAX_MISSILES; i++)
+		{
+			if (_missiles[i] == NULL)
+			{
+				_missiles[i] = new Missile(_player->getPosX() + 2, _player->getPosY());
+				break;
+			}
+		}
+	}
 
 	_collideAll();
 
@@ -100,6 +112,13 @@ void	Game::_update(void)
 		if (_enemies[i] != NULL) {
 //			mvprintw(1 + i, 1, "enemy %d : ", i);
 			_enemies[i]->update();
+		}
+	}
+
+	for (int i = 0; i < MAX_MISSILES; i++) {
+		if (_missiles[i] != NULL) {
+		//	_missiles[i]->move(1, 0);
+		//	_missiles[i]->update();
 		}
 	}
 

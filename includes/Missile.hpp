@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.hpp                                         :+:      :+:    :+:   */
+/*   Missile.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:52:39 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:19:01 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Player_hpp
-#define Player_hpp
+#ifndef Missile_hpp
+#define Missile_hpp
 
-#include "ACharacter.hpp"
+#include "AHitBox.hpp"
 #include <string>
 
-class Player : public ACharacter
+class Missile : public AHitBox
 {
 public:
-	Player(void);
-	Player(int, int, int, int);
-    Player(Player const & src);
-    virtual ~Player(void);
+	Missile(void);
+	Missile(int x, int y);
+    Missile(Missile const & src);
+    virtual ~Missile(void);
 
-	int			getLifes(void) const;
+//	void	shoot(void);
+//	void	takeDamage(int amount);
 
-	Player &	operator=( Player const & rhs );
-
-	virtual void	shoot(void);
-	virtual void	takeDamage(int);
-
-private:
-	int	_lifes;
+	Missile &	operator=( Missile const & rhs );
 };
 
 
-#endif /* Player_hpp */
+#endif /* Missile_hpp */

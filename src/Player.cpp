@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:38:41 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 14:08:55 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Player::Player(void)
 }
 
 Player::Player(int pv, int x, int y, int lifes_)
-	: ACharacter(pv, y, x, 2, 1, "=>"), _lifes(lifes_)
+	: ACharacter(pv, x, y, 2, 1, "=>"), _lifes(lifes_)
 {
 }
 

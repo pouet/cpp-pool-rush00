@@ -1,39 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.hpp                                         :+:      :+:    :+:   */
+/*   Missile.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 13:52:39 by svelhinh         ###   ########.fr       */
+/*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
+/*   Updated: 2017/04/09 14:20:38 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Player_hpp
-#define Player_hpp
+#include "Missile.hpp"
+#include "Game.hpp"
 
-#include "ACharacter.hpp"
-#include <string>
-
-class Player : public ACharacter
+Missile::Missile(void)
+	: AHitBox(1, 1, 1, 1)
 {
-public:
-	Player(void);
-	Player(int, int, int, int);
-    Player(Player const & src);
-    virtual ~Player(void);
+}
 
-	int			getLifes(void) const;
+Missile::Missile(int x, int y)
+	: AHitBox(x, y, 1, 1)
+{
+}
 
-	Player &	operator=( Player const & rhs );
+Missile::Missile(Missile const & src)
+{
+	*this = src;
+	return;
+}
 
-	virtual void	shoot(void);
-	virtual void	takeDamage(int);
-
-private:
-	int	_lifes;
-};
+Missile::~Missile(void)
+{
+}
 
 
-#endif /* Player_hpp */
+// void	Missile::shoot(void)
+// {
+// }
+//
+// void	Missile::takeDamage(int amount)
+// {
+// }
+
+Missile &	Missile::operator=( Missile const & rhs )
+{
+	return *this;
+}
