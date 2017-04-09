@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:31:48 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 17:29:00 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Game::Game(void)
 	for (int i = 0; i < MAX_MISSILES; i++)
 		_missiles[i] = NULL;
 
-	_player = new Player(20, 5, 10, 3);
+	_player = new Player(20, 100, 10, 3);
 
 	_frameInit();
 }
@@ -42,12 +42,32 @@ Game & Game::operator = (Game const & rhs)
 
 void Game::start(void)
 {
-	while (!_isExiting()) {
+	while (!_isExiting())
+	{
 		_ev.update();
-		_update();
-
-		_draw();
-		_frameWait();
+		if (_gameState == e_playing)
+		{
+			_update();
+			_draw();
+			_frameWait();
+		}
+		else if (_gameState == e_gameOver)
+		{
+			delete _player;
+			for (int i = 0; i < _nbEnemiesTotal; i++) {
+				if (_enemies[i] != NULL) {
+				 	delete _enemies[i];
+					_enemies[i] = NULL;
+				}
+			}
+			mvprintw(5, 20, "  _____          __  __ ______    ______      ________ _____");
+			mvprintw(6, 20, " / ____|   /\\   |  \\/  |  ____|  / __ \\ \\    / /  ____|  __ \\ ");
+			mvprintw(7, 20, "| |  __   /  \\  | \\  / | |__    | |  | \\ \\  / /| |__  | |__) |");
+			mvprintw(8, 20, "| | |_ | / /\\ \\ | |\\/| |  __|   | |  | |\\ \\/ / |  __| |  _  /");
+			mvprintw(9, 20, "| |__| |/ ____ \\| |  | | |____  | |__| | \\  /  | |____| | \\ \\");
+			mvprintw(10, 20, " \\_____/_/    \\_\\_|  |_|______|  \\____/   \\/   |______|_|  \\_\\");
+			_gameState = e_losing;
+		}
 	}
 }
 
@@ -59,12 +79,13 @@ void	Game::_collideAll(void)
 			_enemies[i] = NULL;
 
 			_player->setPv(0);
+			_gameState = e_gameOver;
 		}
 
 		for (int j = 0; j < MAX_MISSILES; j++) {
 			if (_enemies[i] != NULL && _missiles[j] != NULL && _enemies[i]->collide(*_missiles[j])) {
 
-				_score++; // TODO: score Enemy
+				_score += _enemies[i]->getGivenScore();
 
 				delete _enemies[i];
 				_enemies[i] = NULL;
@@ -100,15 +121,13 @@ void	Game::_handleEvents(void)
 
 void	Game::_update(void)
 {
-	clear();
-
 	_handleEvents();
 	_collideAll();
 
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] == NULL) {
 			if (rand() % 750 == 0) {
-			_enemies[i] = new Enemy(3, MAPL - 1, 1 + (rand() % (MAPH - 1)));
+			_enemies[i] = new Enemy(3, MAPL - 1, 1 + (rand() % (MAPH - 1)), 2);
 			}
 		}
 		else {
@@ -131,6 +150,7 @@ void	Game::_update(void)
 
 void	Game::_draw(void)
 {
+	clear();
 	_player->draw();
 
 	for (int i = 0; i < _nbEnemiesTotal; i++)

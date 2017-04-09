@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:00:26 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 17:28:25 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class Enemy : public ACharacter
 {
 public:
 	Enemy(void);
-	Enemy(int, int x, int y);
+	Enemy(int pv, int x, int y, int givenScore);
     Enemy(Enemy const & src);
     virtual ~Enemy(void);
 
-	std::string	getShape(void) const;
+	int			getGivenScore(void) const;
 
 	Enemy &	operator=( Enemy const & rhs );
 
@@ -34,6 +34,7 @@ public:
 
 private:
 	int _elapsedTicks;
+	int	_givenScore;
 };
 
 

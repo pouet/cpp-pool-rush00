@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:17:47 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 17:28:44 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <cstdlib>
 
 Enemy::Enemy(void)
-	: ACharacter(1, 1, 1, 1, 1, "@"), _elapsedTicks(0)
+	: ACharacter(1, 1, 1, 2, 2, "@@\n@@"), _elapsedTicks(0)
 {
 }
 
-Enemy::Enemy(int pv, int x, int y)
-	: ACharacter(pv, x, y, 1, 1, "@"), _elapsedTicks(0)
+Enemy::Enemy(int pv, int x, int y, int givenScore)
+	: ACharacter(pv, x, y, 2, 2, "@@\n@@"), _elapsedTicks(0), _givenScore(givenScore)
 {
 }
 
@@ -34,10 +34,15 @@ Enemy::~Enemy(void)
 {
 }
 
+int			Enemy::getGivenScore(void) const
+{
+	return _givenScore;
+}
+
 void	Enemy::update(void)
 {
 	_elapsedTicks++;
-	// vitesse: niveau 0 -> 1s : 30 ticks
+	// vitesse: niveau 0 -> 0.5s : 30 ticks
 	if (_elapsedTicks < 30 + rand() % 10)
 		return;
 	_elapsedTicks = 0;

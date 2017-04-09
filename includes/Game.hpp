@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 16:31:40 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 17:09:34 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@
 #define FPS_DFLT_MSEC (FPS_DFLT_SEC * 1000)
 
 #define MAX_ENEMIES 10
-#define MAX_MISSILES 100
+#define MAX_MISSILES 20
 
 enum e_gameState {
 	e_playing,
+	e_gameOver,
+	e_losing,
 	e_exiting
 };
 
