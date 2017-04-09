@@ -11,6 +11,7 @@ int main(void)
 	timeout(0);
 	noecho();
 	keypad(stdscr, TRUE);
+	start_color();
 
 	g.start();
 
