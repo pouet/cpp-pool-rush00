@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 12:14:55 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 13:08:21 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 #define MAPH 25
 
 #define FPS_DFLT (10. / 1000)
+
+#define MAX_ENEMIES 10
 
 enum e_gameState {
 	e_playing,
@@ -52,9 +54,9 @@ class Game {
 		bool _isExiting(void) const;
 		void _mainLoop(void);
 
-		void	_add(Player *);
-		void	_add(Enemy *);
-		void	_remove(Player *);
+//		void	_add(Player &);
+//		void	_add(Enemy *);
+//		void	_remove(Player *);
 
 		void	_draw(void);
 
@@ -62,10 +64,10 @@ class Game {
 
 		Event _ev;
 
-		static int const _nbEnemiesTotal = 10;
+		int const _nbEnemiesTotal;
 
 		Player	* _player;
-		Enemy	* _enemies[_nbEnemiesTotal];
+		Enemy	* _enemies[MAX_ENEMIES];
 
 		time_t _ticks;
 
