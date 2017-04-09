@@ -10,6 +10,7 @@ int main(void)
 	curs_set(0);
 	timeout(0);
 	noecho();
+	keypad(stdscr, TRUE);
 
 	g.start();
 

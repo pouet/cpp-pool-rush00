@@ -27,3 +27,13 @@
 *.exe
 *.out
 *.app
+
+# Vim
+*.swp
+*.swo
+
+a.out
+
+.DS_Store
+
+ft_retro

@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 17:05:34 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 09:36:17 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ public:
 	void	setY(int y_);
 	void	update(void);
 
+	bool	isAlive(void) const;
+
 	ACharacter &	operator=( ACharacter const & rhs );
 
 protected:
-	int		pv;
-	int		x;
-	int		y;
-	std::string const	shape;
+	int		_pv;
+	int		_x;
+	int		_y;
+	std::string const	_shape;
 
 	virtual void	move(int, int) = 0;
 	virtual void	shoot(void) = 0;

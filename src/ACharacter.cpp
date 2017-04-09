@@ -6,17 +6,17 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 17:09:23 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 09:49:05 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ACharacter.hpp"
 
-ACharacter::ACharacter(void): pv(0), x(0), y(0), shape(".")
+ACharacter::ACharacter(void): _pv(10), _x(0), _y(0), _shape(".")
 {
 }
 
-ACharacter::ACharacter(int pv_, int x_, int y_, const std::string shape_): pv(pv_), x(x_), y(y_), shape(shape_)
+ACharacter::ACharacter(int pv_, int x_, int y_, const std::string shape_): _pv(pv_), _x(x_), _y(y_), _shape(shape_)
 {
 }
 
@@ -32,48 +32,53 @@ ACharacter::~ACharacter(void)
 
 int ACharacter::getPv(void) const
 {
-	return pv;
+	return _pv;
 }
 
 int ACharacter::getX(void) const
 {
-	return x;
+	return _x;
 }
 
 int ACharacter::getY(void) const
 {
-	return y;
+	return _y;
 }
 
 std::string const ACharacter::getShape(void) const
 {
-	return shape;
+	return _shape;
 }
 
 void ACharacter::setPv(int pv_)
 {
-	pv = pv_;
+	_pv = pv_;
 }
 
 void ACharacter::setX(int x_)
 {
-	x = x_;
+	_x = x_;
 }
 
 void ACharacter::setY(int y_)
 {
-	y = y_;
+	_y = y_;
 }
 
 void	ACharacter::update(void)
 {
-	mvprintw(x, y, shape.c_str());
+	mvprintw(_x, _y, _shape.c_str());
+}
+
+bool	ACharacter::isAlive(void) const
+{
+	return _pv <= 0;
 }
 
 ACharacter &	ACharacter::operator=( ACharacter const & rhs )
 {
-	pv = rhs.getPv();
-	x = rhs.getX();
-	y = rhs.getY();
+	_pv = rhs.getPv();
+	_x = rhs.getX();
+	_y = rhs.getY();
 	return *this;
 }

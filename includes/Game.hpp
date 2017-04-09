@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 19:07:19 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 10:42:10 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define MAPL 100
 #define MAPH 25
 
+#define FPS_DFLT (10. / 1000)
+
 enum e_gameState {
 	e_playing,
 	e_exiting
@@ -34,12 +36,17 @@ class Game {
 		Game & operator = (Game const & rhs);
 
 		void start(void);
-		static void	_remove(Enemy *);
+		void	_remove(Enemy *);
 
 	private:
 		bool _init(void);
 		bool _quit(void);
 		void _quit(std::string msg);
+
+		void	_update(void);
+
+		void _frameInit(void);
+		void _frameWait(void);
 
 		bool _isExiting(void) const;
 		void _mainLoop(void);
@@ -57,7 +64,9 @@ class Game {
 		static int const _nbEnemiesTotal = 10;
 
 		Player	_player;
-		static Enemy	*_enemies[_nbEnemiesTotal];
+		Enemy	*_enemies[_nbEnemiesTotal];
+
+		time_t _ticks;
 
 		UserInterface ui;
 };

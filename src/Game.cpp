@@ -6,15 +6,14 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/08 19:10:38 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 10:53:37 by nchrupal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <unistd.h>
 #include "ncurses.h"
 #include "Game.hpp"
-
-Enemy	*Game::_enemies[_nbEnemiesTotal];
 
 Game::Game(void)
 	: _gameState(e_playing)
@@ -22,6 +21,14 @@ Game::Game(void)
 	(void)_gameState;
 	for (int i = 0; i < _nbEnemiesTotal; i++)
 		_enemies[i] = NULL;
+
+	_add(Player(20, 10, 5));
+	_add(new Enemy(3, 10, 30));
+	_add(new Enemy(5, 10, 31));
+	_add(new Enemy(10, 30, 40));
+	_add(new Enemy(20, 40, 50));
+
+	_frameInit();
 }
 
 Game::~Game(void)
@@ -36,46 +43,62 @@ Game & Game::operator = (Game const & rhs)
 
 void Game::start(void)
 {
-	_init();
+//	_init();
 
 	while (!_isExiting()) {
 		_ev.update();
 
-		if (_ev.isPressed(K_UP))
-			_player.move(-1, 0);
-		if (_ev.isPressed(K_DOWN))
-			_player.move(1, 0);
-		if (_ev.isPressed(K_LEFT))
-			_player.move(0, -1);
-		if (_ev.isPressed(K_RIGHT))
-			_player.move(0, 1);
-		if (_ev.isPressed(K_SHOOT))
-			printw("shoot\n");
+		_update();
+
 		_draw();
+		_frameWait();
 	}
 
-	_quit();
+//	_quit();
 }
 
-bool Game::_init(void)
-{
-	_add(Player(20, 10, 5));
-	_add(new Enemy(3, 10, 30));
-	_add(new Enemy(5, 10, 31));
-	_add(new Enemy(10, 30, 40));
-	_add(new Enemy(20, 40, 50));
-	return true;
-}
-
-void	Game::_draw(void)
+void	Game::_update(void)
 {
 	clear();
+
+	for (int i = 0; i < _nbEnemiesTotal; i++) {
+		if (_enemies[i] != NULL && _enemies[i]->isAlive() == false) {
+//			printw("%p\n", _enemies[i]);
+//			delete _enemies[i];
+			_enemies[i] = NULL;
+		}
+	}
+
+	if (_ev.isPressed(K_UP))
+		_player.move(-1, 0);
+	if (_ev.isPressed(K_DOWN))
+		_player.move(1, 0);
+	if (_ev.isPressed(K_LEFT))
+		_player.move(0, -1);
+	if (_ev.isPressed(K_RIGHT))
+		_player.move(0, 1);
+	if (_ev.isPressed(K_SHOOT))
+		printw("shoot\n");
+
+//	for (int i = 0; i < _nbEnemiesTotal; i++)
+//		printw("%p\n", _enemies[i]);
+
 	_player.update();
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] != NULL)
 			_enemies[i]->update();
 	}
+
 	ui.update();
+}
+
+bool Game::_init(void)
+{
+	return true;
+}
+
+void	Game::_draw(void)
+{
 	refresh();
 }
 
@@ -86,13 +109,13 @@ bool Game::_quit(void)
 
 void Game::_quit(std::string msg)
 {
-	std::cout << msg << std::endl;
-	exit(0);
+//	std::cout << msg << std::endl;
+//	exit(0);
 }
 
 bool Game::_isExiting(void) const
 {
-	return 0;//_ev.isPressed(K_ESC);		// Marche pas, si je le met le jeu quitte directement
+	return _ev.isPressed(K_ESC);
 }
 
 void Game::_mainLoop(void)
@@ -113,7 +136,6 @@ void	Game::_add(Enemy * enemy)
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] == NULL) {
 			_enemies[i] = enemy;
-			_enemies[i]->update();
 		}
 	}
 }
@@ -127,8 +149,27 @@ void	Game::_remove(Enemy * enemy)
 {
 	for (int i = 0; i < _nbEnemiesTotal; i++) {
 		if (_enemies[i] == enemy) {
-		 	delete _enemies[i];
-			_enemies[i] = NULL;
+//		 	delete _enemies[i];
+//			_enemies[i] = NULL;
 		}
 	}
+}
+
+void Game::_frameWait(void)
+{
+	time_t now;
+
+	while (1) {
+		now = std::clock();
+		double t = (double)(now - _ticks) / CLOCKS_PER_SEC;
+		if (t >= FPS_DFLT)
+			break;
+		usleep(1);
+	};
+	_ticks = now;
+}
+
+void Game::_frameInit(void)
+{
+	_ticks = std::clock();
 }
