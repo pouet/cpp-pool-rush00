@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 12:23:51 by nchrupal         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:00:26 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ public:
 
 	virtual void	shoot(void);
 	virtual void	takeDamage(int);
+	virtual void	update(void);
+
+private:
+	int _elapsedTicks;
 };
 
 

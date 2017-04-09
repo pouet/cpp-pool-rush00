@@ -6,6 +6,7 @@ int main(void)
 {
 	Game g;
 
+	srand(time(NULL));
 	initscr();
 	curs_set(0);
 	timeout(0);

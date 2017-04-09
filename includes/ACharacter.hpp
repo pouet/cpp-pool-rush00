@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:24:59 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:24:28 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:00:07 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ protected:
 
 	virtual void	shoot(void) = 0;
 	virtual void	takeDamage(int) = 0;
+	virtual void	update(void) = 0;
 };
 
 

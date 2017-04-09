@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:46 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:42:31 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:48:39 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 #define MAPL 150
 #define MAPH 25
 
-#define FPS_DFLT (10. / 1000)
+#define FPS 50
+#define FPS_DFLT_SEC (1. / FPS)
+#define FPS_DFLT_MSEC (FPS_DFLT_SEC * 1000)
 
 #define MAX_ENEMIES 10
 #define MAX_MISSILES 100
@@ -80,6 +82,7 @@ class Game {
 		time_t _ticks;
 
 		UserInterface ui;
+
 };
 
 #endif

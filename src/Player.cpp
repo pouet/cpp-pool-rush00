@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 15:14:12 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 16:01:11 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void	Player::shoot(void)
 void	Player::takeDamage(int amount)
 {
 	(void)amount;
+}
+
+void	Player::update(void)
+{
 }
 
 void	Player::move(int x, int y)
