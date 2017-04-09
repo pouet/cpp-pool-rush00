@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 17:01:52 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 14:58:01 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:09:39 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,8 @@ void Game::_quit(std::string msg)
 bool Game::_isExiting(void) const
 {
 	// TODO: pourquoi ?
-	return false;
-	//return _ev.isPressed(K_ESC);
+	//return false;
+	return _ev.isPressed(K_ESC);
 }
 
 void Game::_mainLoop(void)
