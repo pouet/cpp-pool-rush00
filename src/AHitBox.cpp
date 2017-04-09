@@ -65,10 +65,10 @@ AHitBox & AHitBox::operator = (AHitBox const & rhs)
 
 bool AHitBox::collide(AHitBox const & obj) const
 {
-	if (getPosX() <= obj.getPosX() + obj.getWidth() &&
-		obj.getPosX() <= getPosX() + getWidth() &&
-		getPosY() <= obj.getPosY() + obj.getHeight() &&
-		obj.getPosY() <= getPosY() + getHeight())
+	if (getPosX() <= obj.getPosX() + obj.getWidth() - 1 &&
+		obj.getPosX() <= getPosX() + getWidth() - 1 &&
+		getPosY() <= obj.getPosY() + obj.getHeight() - 1 &&
+		obj.getPosY() <= getPosY() + getHeight() - 1)
 		return true;
 	else
 		return false;
