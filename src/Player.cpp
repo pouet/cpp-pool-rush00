@@ -6,7 +6,7 @@
 /*   By: svelhinh <svelhinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 13:25:27 by svelhinh          #+#    #+#             */
-/*   Updated: 2017/04/09 15:08:38 by svelhinh         ###   ########.fr       */
+/*   Updated: 2017/04/09 15:14:12 by svelhinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Player::move(int x, int y)
 	int	mvX = _x + x;
 	int	mvY = _y + y;
 
-	if (mvX <= 0 || mvX > MAPL || mvY < 0 || mvY > MAPH)
+	if (mvX <= 0 || mvX > MAPL - getWidth() || mvY <= 0 || mvY >= MAPH - getHeight() + 1)
 		return;
 	_x = x + _x;
 	_y = y + _y;
